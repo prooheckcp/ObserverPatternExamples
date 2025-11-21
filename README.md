@@ -50,19 +50,6 @@ From repository root:
 lua Main.lua
 ```
 
-If using scripts that require modules in subfolders:
-```bash
-lua -e "package.path='src/?.lua;'..package.path" Main.lua
-```
-
-## Project Structure (typical)
-```
-Main.lua
-observer/
-  Subject.lua
-  Observer.lua
-```
-
 ## Updating Lua
 - macOS: `brew upgrade lua`
 - Windows (Chocolatey): `choco upgrade lua`
