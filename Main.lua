@@ -1,16 +1,17 @@
-local Observer = require("Observer")
+local Subject = require("Subject")
 
-local observer = Observer.new()
+local subject = Subject.new()
 
 -- Our first listener
-observer:Connect(function(...)
+subject:Connect(function(...)
     print("Listener 1: ", ...)
 end)
 
-observer:Fire("Hello", "World")
+subject:Fire("Hello", "World") -- Will only fire listener 1
 
-observer:Connect(function(...)
+-- Our Second listener
+subject:Connect(function(...)
     print("Listener 2: ", ...)
 end)
 
-observer:Fire("Goodbye", "World")
+subject:Fire("Goodbye", "World") -- Will fire listener 1 and 2

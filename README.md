@@ -1,6 +1,6 @@
-# Observer Pattern Examples (Lua)
+# Subject Pattern Examples (Lua)
 
-Small codebase demonstrating the Observer Pattern in action using simple Lua scripts.
+Small codebase demonstrating the Subject Pattern in action using simple Lua scripts.
 
 ## Requirements
 Lua 5.2+ (interpreter acts as compiler/runner).

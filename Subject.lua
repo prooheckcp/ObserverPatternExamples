@@ -1,16 +1,16 @@
-local Observer = {}
-Observer.__index = Observer
-Observer._Listeners = {}
+local Subject = {}
+Subject.__index = Subject
+Subject._Listeners = {}
 
-function Observer.new()
+function Subject.new() -- Constructor
     local self = setmetatable({
         _Listeners = {},
-    }, Observer)
+    }, Subject)
     
     return self
 end
 
-function Observer:Fire(...) -- Fires the listeners with the given arguments
+function Subject:Fire(...) -- Fires the listeners with the given arguments
     for _, listener in pairs(self._Listeners) do
         local args = {...}
 
@@ -24,7 +24,7 @@ function Observer:Fire(...) -- Fires the listeners with the given arguments
     end
 end
 
-function Observer:Connect(callback) -- Subscribes the listener
+function Subject:Connect(callback) -- Subscribes the listener
     if type(callback) ~= "function" then
         error(string.format("Callback must be of type function, got %s instead", type(callback)))
     end
@@ -41,4 +41,4 @@ function Observer:Connect(callback) -- Subscribes the listener
     end
 end
 
-return Observer
+return Subject
